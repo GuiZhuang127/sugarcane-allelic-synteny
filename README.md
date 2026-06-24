@@ -1,3 +1,39 @@
+## Requirements
+
+### R packages
+
+The script requires R and the following R packages:
+
+```r
+install.packages(c("argparse", "ggplot2"))
+```
+
+The `grid` package is also used for plotting arrows and layout control, but it is included with standard R installations and usually does not need to be installed separately.
+
+### External command-line tools
+
+The following command-line tools should be installed and available in your `PATH`:
+
+* [SeqKit](https://bioinf.shenwei.me/seqkit/)
+  Used for sequence manipulation and reverse-complement conversion.
+
+* [MUMmer4](https://mummer4.github.io/)
+  Used for pairwise sequence alignment. This script calls `dnadiff`.
+
+* [BEDTools](https://bedtools.readthedocs.io/)
+  Used for extracting genomic sequences and intersecting genomic intervals. This script calls `bedtools getfasta` and `bedtools intersect`.
+
+### Check installation
+
+You can check whether the required tools are available by running:
+
+```bash
+Rscript -e "library(argparse); library(ggplot2); library(grid)"
+seqkit version
+dnadiff --version
+bedtools --version
+```
+
 ## Usage
 
 Show help information:
